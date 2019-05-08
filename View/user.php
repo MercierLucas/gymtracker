@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="View/css/home.css">
     <title>Document</title>
 </head>
@@ -16,13 +18,89 @@
         <div class="submain">
             <fieldset class="categorie">
                 <legend>My programs</legend>
+                <?php
+                        if(sizeof($programList)==0) echo "No program <br>";
+                        else{
+                            for($i=0;$i<sizeof($programList);$i++){
+                                if($i%2==0) $color='lightgrey';
+                                else $color='white';
+                                echo "<a href='#' style='background-color:".$color."' class='program' id='program".$programList[$i]["idProgram"]."'>".$programList[$i]["name"]."</a><br>";
+                            }
+                            
+                        }
+                ?>
                 <button onclick="dispDiv('addProgram')">Add program</button>
                 <form action="" method="post" style="display:none" id="addProgram">
-                    <label for="pgmname">Program name</label>
-                    <input type="text" required name="pgmname" id="pgmname">
-                    <input type="submit">
+                    <table>
+                        <tr>
+                            <td><label for="pgmname">Program name</label></td>
+                            <td><input type="text" required name="pgmname" id="pgmname"></td>  
+                        </tr>
+                    </table>
+                    <input type="submit" value="Add">
+                </form>
+                <form action="" method="post" id="addnewexercices">
+                    <div id="addexercices" style="display:none">
+                        <div id="addPrgLegend">Add exercice to program</div>
+                        <table id="newexgrp" style="background-color:darkgrey;"> 
+                            <tr>
+                                <td>Muscle group</td>
+                                <td>
+                                    <select name="exgroup" id="exgroup">
+                                            <option value="quadriceps">Quadriceps</option>
+                                            <option value="hamstrings">Hamstrings</option>
+                                            <option value="gluteals">Gluteals</option>
+                                            <option value="pectoralis">Pectoralis</option>
+                                            <option value="back">Back</option>
+                                            <option value="lats">Lats</option>
+                                            <option value="biceps">Biceps</option>
+                                            <option value="triceps">Triceps</option>
+                                            <option value="deltoids">Deltoids</option>
+                                            <option value="abs">Abs</option>
+                                            <option value="calves">Calves</option>
+                                            <option value="forearm">Forearm</option>
+                                    </select>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>Exercice</td>
+                                <td>
+                                    <select name="exname" >
+                                        <?php
+                                            for($i=0;$i<sizeof($exercicesList);$i++){
+                                                echo "<option value='".$exercicesList[$i]['name']."'>".$exercicesList[$i]['name']."</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sets</td>
+                                <td><input type="number" name="sets" required></td>
+                            </tr>
+                            <tr>
+                                <td>Reps</td>
+                                <td><input type="number" name="reps" required></td>
+                            </tr>
+                            <tr>
+                                <td>Rest(min)</td>
+                                <td><input type="number" name="rest" required></td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value="Add exercice" name="id" id="newexsubmit"></td>
+                            </tr>
+                            
+                        </table>
+
+                    </div>
                 </form>
             </fieldset>
+            <fieldset class="categorie">
+                <legend>Program details</legend>
+                <div id="programdetails">Choose a program on your left to display more details</div>
+            </fieldset>
+        </div>
+        <div class="submain">
             <fieldset class="categorie">
                 <legend>My exercices</legend>
                 <table>
@@ -79,11 +157,6 @@
                     <input type="submit" value="Add">
                 </form>
             </fieldset>
-        </div>
-        <div class="submain">
-            <fieldset class="categorie">
-                <legend>Weight track</legend>
-            </fieldset>
             <fieldset class="categorie">
                 <legend>Help</legend>
                 <a href="https://sites.google.com/site/bodytrainingandexercise/_/rsrc/1424052191640/muscle-groups/muscle-anatomy-chart.jpg"><Button>Muscle group</Button></a>
@@ -95,8 +168,4 @@
 </body>
 </html>
 
-<script>
-    function dispDiv(div){
-        document.getElementById(div).style.display="block";
-    }
-</script>
+<script src="View/js/user.js"></script>

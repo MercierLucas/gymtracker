@@ -6,6 +6,7 @@ body{
 table{
     border-collapse: collapse;
 }
+
 fieldset{
     width: 20%;
     margin-left:auto;
@@ -37,4 +38,8 @@ header{
 
 .exgroup{
     width: 30%;
+}
+
+#addexercices{
+    width:100%;
 }
