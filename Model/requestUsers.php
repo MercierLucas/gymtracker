@@ -24,4 +24,20 @@ function connect($bdd,$mail,$password){
     if(sizeof($donnees)==0) return FALSE;
     return $donnees;
 }
+
+function addExercice($bdd,$musclegrp,$name,$notes){
+    $sql='insert into globalexercices (idGlobalExercices,muscle,name,notes) VALUES (?,?,?,?)';
+    $stmt=$bdd->prepare($sql);
+    if(!$stmt->execute([null,$musclegrp,$name,$notes])){
+        echo $stmt->errorCode();
+        return;
+    }
+}
+
+function getExercices($bdd){
+    $query='select * from globalexercices';
+    $ans=$bdd->query($query);
+    $donnees = $ans->fetchall();
+    return $donnees;
+}
 ?>
