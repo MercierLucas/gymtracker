@@ -5,6 +5,7 @@
 
     */
     include('Model/requestUsers.php');
+
     if(isset($_GET['function']) || !empty($_GET['function'])){
         $function=$_GET['function'];
     }

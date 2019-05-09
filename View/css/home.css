@@ -43,3 +43,11 @@ header{
 #addexercices{
     width:100%;
 }
+
+#tableprogram tr{
+    border:1px solid black;
+}
+
+#tableprogram{
+    width: 100%;
+}

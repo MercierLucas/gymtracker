@@ -26,17 +26,21 @@ var getHttpRequest= function(){
     return httpRequest;
 }
 
-// get ajax request
+/* // get ajax request
 httpRequest=getHttpRequest();
 httpRequest.onreadystatechange=function(){
     if(httpRequest.readyState===4){
         //document.getElementById('result').innerHTML=httpRequest.responseText;
+        console.log(httpRequest.responseText);
         obj=JSON.parse(httpRequest.responseText);
-        removeChild('table-body'); // efface les anciennes données
+        console.log(obj);
+        removeChild('exgroup'); // efface les anciennes données
+        if(obj.length==0) $('#exgroup').append("<option disabled>No exercices found</option>");
         for(var i=0;i<obj.length;i++){
+          $('#exgroup').append("<option value='"+obj[i].name+"'>"+obj[i].name+"</option>");
         }     
     }
-}
+} */
 
 function removeChild(parent){
     var myNode = document.getElementById(parent);
@@ -73,6 +77,7 @@ $('.program').click(function(e) {
     addDetails(name);
   });
 
+ 
 
 /* $('#exnb').on('input',function(e){
     removeChild('#newexgrp')

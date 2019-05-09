@@ -46,7 +46,7 @@
                             <tr>
                                 <td>Muscle group</td>
                                 <td>
-                                    <select name="exgroup" id="exgroup">
+                                    <select name="exgroup" id="mslgroup">
                                             <option value="quadriceps">Quadriceps</option>
                                             <option value="hamstrings">Hamstrings</option>
                                             <option value="gluteals">Gluteals</option>
@@ -65,12 +65,7 @@
                             <tr>
                                 <td>Exercice</td>
                                 <td>
-                                    <select name="exname" >
-                                        <?php
-                                            for($i=0;$i<sizeof($exercicesList);$i++){
-                                                echo "<option value='".$exercicesList[$i]['name']."'>".$exercicesList[$i]['name']."</option>";
-                                            }
-                                        ?>
+                                    <select name="exname" id="exgroup" >
                                     </select>
                                 </td>
                             </tr>
@@ -98,6 +93,17 @@
             <fieldset class="categorie">
                 <legend>Program details</legend>
                 <div id="programdetails">Choose a program on your left to display more details</div>
+                <table id="tableprogram">
+                    <thead>
+                        <tr>
+                            <td>Exercice name</td>
+                            <td>Sets</td>
+                            <td>Reps</td>
+                            <td>Rest(min)</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tablecontent"></tbody>
+                </table>
             </fieldset>
         </div>
         <div class="submain">

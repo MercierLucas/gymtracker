@@ -71,4 +71,6 @@ function addToProgram($bdd,$idExercice,$idProgram,$sets,$reps,$rest){
     }
 
 }
+
+
 ?>
