@@ -53,4 +53,4 @@
     if(isset($error)) echo $error;
 ?>
 
-<script src="Controller/behaviour.js"></script>
+<script src="Controller/behaviour.js">console.log('ok');</script>

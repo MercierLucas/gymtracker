@@ -1,4 +1,32 @@
-/* // get ajax request
+var getHttpRequest= function(){
+    // permet de supporter tous les navigateurs ( même les moins bons tels que IE .......)
+    var httpRequest = false;
+    if (window.XMLHttpRequest) { // Mozilla, Safari,...
+        httpRequest = new XMLHttpRequest();
+        if (httpRequest.overrideMimeType) {   // permet d'éviter un bug
+          httpRequest.overrideMimeType('text/xml');
+        }
+      }
+      else if (window.ActiveXObject) { // IE
+        try {
+          httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e) {
+          try {
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          catch (e) {}
+        }
+      }
+      
+      if (!httpRequest) {
+        alert('Abandon :( Impossible de créer une instance XMLHTTP');
+        return false;
+      }
+    return httpRequest;
+}
+
+// get ajax request
 httpRequest=getHttpRequest();
 httpRequest.onreadystatechange=function(){
     if(httpRequest.readyState===4){
@@ -16,7 +44,7 @@ function removeChild(parent){
         myNode.removeChild(myNode.firstChild);
     }
 }
- */
+
 function dispDiv(div){
     document.getElementById(div).style.display="block";
 }
@@ -25,7 +53,8 @@ function hideDiv(div){
 }
 
 function addHiddenField(value){
-    $('#addnewexercices').append('<input type="hidden" name="id" value="'+value+'" /> ');
+    $('#hiddenfield').remove();     // pour éviter de rajouter plusieurs fois un hidden field
+    $('#addnewexercices').append('<input type="hidden" name="id" value="'+value+'" id="hiddenfield"/> ');
 }
 
 function addDetails(name){

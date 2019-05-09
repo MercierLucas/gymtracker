@@ -27,12 +27,12 @@ var getHttpRequest= function(){
 }
 
 
-/*  // Add row to form
-$('#exnb').on('input',function(e){
-    console.log('input changed');
+  // Add row to form
+$('#exgroup').change(function(e){
+    console.log('changed');
     e.preventDefault();
-     httpRequest.open('POST','./Modeles/requeteUser.php',true);
+    httpRequest.open('POST','./Model/requeteUser.php',true);
     var form=document.getElementById('form');
     var data=new FormData(form);
-    httpRequest.send(data); 
-});  */
+    httpRequest.send(data);  
+});  
