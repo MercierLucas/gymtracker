@@ -100,6 +100,7 @@
                             <td>Sets</td>
                             <td>Reps</td>
                             <td>Rest(min)</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody id="tablecontent"></tbody>

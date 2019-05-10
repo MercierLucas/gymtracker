@@ -40,6 +40,8 @@
                 $reps=htmlspecialchars($_POST['reps']);
                 $rest=htmlspecialchars($_POST['rest']);
                 addToProgram($bdd,$idExercice,$idProgram,$sets,$reps,$rest);
+                header("Location: " . $_SERVER['REQUEST_URI']); // Post / request / get 
+                exit();
             }
             break;
             
