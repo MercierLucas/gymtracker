@@ -11,7 +11,6 @@ if(isset($_GET['function']) || !empty($_GET['function'])){
 else{
     $function='home';
 }
-print_r($_SESSION);
 switch($function){
     case "home":
         $view='home';
@@ -24,7 +23,7 @@ switch($function){
             $password=hash("sha256",htmlspecialchars($_POST['password']));
             $user=connect($bdd,$mail,$password);
             if(!$user){
-                $error="Data not found";
+                $error="Wrong information";
                 break;
             }
             if($password==$user[0]['password']){
@@ -32,7 +31,7 @@ switch($function){
                 $_SESSION['firstname']=$user[0]['firstName'];
                 $_SESSION['lastname']=$user[0]['lastName'];
                 $_SESSION['mail']=$user[0]['mail'];
-                header("Location: http://localhost/gymtracker/?cible=users"); // Post / request / get 
+                header("Location: /gymtracker/?cible=users"); // Post / request / get 
                 exit();
             }
         }
@@ -70,7 +69,5 @@ switch($function){
 
 
 include('View/'.$view.'.php');
-
-if(isset($error)) echo $error;
 
 ?>

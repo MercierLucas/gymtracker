@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="View/css/home.css">
     <title>Document</title>
 </head>
+<?php if(!isset($_SESSION)) header("Location: notconnected.php"); // Post / request / get ?>
 <body>
     <header>
         <div> Connected as <?php echo $_SESSION['firstname'].' '.$_SESSION['lastname']; ?></div>

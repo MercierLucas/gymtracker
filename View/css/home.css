@@ -1,7 +1,7 @@
 body{
     margin:0px;
     padding: 0px;
-    
+    background-color: #1a237e;
 }
 table{
     border-collapse: collapse;
@@ -50,4 +50,24 @@ header{
 
 #tableprogram{
     width: 100%;
+}
+
+legend{
+    background-color:#c5cae9;
+}
+
+#centerbox{
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color:white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+fieldset{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color:white;
 }

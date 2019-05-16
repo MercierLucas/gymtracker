@@ -8,7 +8,7 @@
     <title>Login</title>
 </head>
 <body>
-    <fieldset>
+    <fieldset id="centerbox">
         <legend>Connexion</legend>
         <form action="" method="post">
             <table>
@@ -21,10 +21,11 @@
                     <td> <input type="password" name="password" required></td>
                 </tr>
             </table>
-            <input type="submit">
-            <a href="http://localhost/gymtracker/?cible=sport&function=register">Register</a>
-            <a href="http://localhost/gymtracker/?cible=sport&function=home">Home</a>
+            <input type="submit" value="Connect">
+            <a href="/gymtracker/?cible=sport&function=register">Register</a>
+            <a href="/gymtracker/?cible=sport&function=home">Home</a>
         </form>
+        <?php if(isset($error)) echo '<div style="background-color:red;text-align:center;">'.$error.'</div>';?>
 
     </fieldset>
     

@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <fieldset>
+    <fieldset id="centerbox">
         <legend>Register</legend>
         <form action="" method="post">
             <table>
@@ -38,9 +38,10 @@
                 </tr>
             </table>
             <input type="submit">
-            <a href="http://localhost/gymtracker/?cible=sport&function=login">Login</a>
-            <a href="http://localhost/gymtracker/?cible=sport&function=home">Home</a>
+            <a href="/gymtracker/?cible=sport&function=login">Login</a>
+            <a href="/gymtracker/?cible=sport&function=home">Home</a>
         </form>
+        <?php if(isset($error)) echo '<div style="background-color:red;text-align:center;">'.$error.'</div>';?>
 
     </fieldset>
     
