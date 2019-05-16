@@ -16,6 +16,10 @@ fieldset{
 header{
     background-color: darkgray;
     margin-bottom: 10px;
+    display: flex;
+}
+#disconnect{
+    margin-left: 10px;
 }
 #main{
     width:90%;
@@ -24,13 +28,25 @@ header{
 }
 .submain{
     display:flex;
+    flex-wrap: wrap;
 }
 
-.categorie{
-    width:50%;
-    margin-left: 10px;
-    margin-right: 10px;
+@media screen and (max-width: 640px){
+    .categorie{
+        width:100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+
+@media screen and (min-width: 640px){
+    .categorie{
+        width:45%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 
 .exname{
     width: 70%;

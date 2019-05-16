@@ -13,7 +13,7 @@
 <body>
     <header>
         <div> Connected as <?php echo $_SESSION['firstname'].' '.$_SESSION['lastname']; ?></div>
-        <div> <a href="View/disconnect.php">Disconnect</a> </div>
+        <div id="disconnect"> <a href="View/disconnect.php">Disconnect</a> </div>
     </header>
     <div id="main">
         <div class="submain">
@@ -107,8 +107,6 @@
                     <tbody id="tablecontent"></tbody>
                 </table>
             </fieldset>
-        </div>
-        <div class="submain">
             <fieldset class="categorie">
                 <legend>My exercices</legend>
                 <table>
